@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'student360_db',
         'USER': 'root',
-        'PASSWORD': 'RootPassword@123',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -198,6 +198,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "my157mail@gmail.com"
-EMAIL_HOST_PASSWORD = "hmaq mvak ecvv brhq"
+EMAIL_HOST_USER = "email@gmail.com"
+EMAIL_HOST_PASSWORD = "password"
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
