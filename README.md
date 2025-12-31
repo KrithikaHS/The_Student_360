@@ -44,7 +44,7 @@ Student 360° is a full-stack student management and placement portal designed t
 ## Project Structure
 
 ```
-Student_360/
+360/
 │── backend/        # Django backend (APIs, models, authentication)
 │── frontend/       # React frontend (UI dashboards)
 │── docs/           # ER diagrams and design documents
@@ -58,7 +58,7 @@ Student_360/
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/student-360.git
+git clone https://github.com/your-username/the_student_360.git
 ```
 
 ### Setup Backend
@@ -89,5 +89,5 @@ npm start
 
 ## Contributors
 
-* \[Name] – Backend Development
-* \[Name] – Frontend Development
+@KrithikaHS
+@Pallavi-Patil6
