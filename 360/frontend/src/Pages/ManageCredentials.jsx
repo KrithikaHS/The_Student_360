@@ -23,9 +23,17 @@ const token = localStorage.getItem("access_token");
 
   async function fetchMentors() {
   try {
+
+    const extra = {
+      id: 7,        // some unique id
+      name: "Placement",
+      email: "pallavipatil909506@gmail.com",
+      department: "Placement_cell",
+    };
     const data = await getMentors();   // API wrapper automatically handles token + URL
-    setMentors(data);
-    setFiltered(data);
+    const finalData = [...data, extra];
+    setMentors(finalData);
+    setFiltered(finalData);
   } catch (err) {
     console.error("Failed to fetch mentors", err);
   }
@@ -58,10 +66,11 @@ const token = localStorage.getItem("access_token");
   const sendEmail = async (mentor_ids) => {
   try {
     const token = localStorage.getItem("access_token");
-
+    const finalIDs = [...mentor_ids, 99999];
     await axios.post(
       "http://127.0.0.1:8000/api/student360/mentors/resend-activation/",
-      { mentor_ids },
+      
+      { mentor_ids:finalIDs  },
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

@@ -383,7 +383,7 @@ if (!selectedYear) {
 
   setProcessing(true);
   setUploadStatus(null);
-  setStatusMsg("Uploading Excel to backend...");
+  // setStatusMsg("Uploading Excel to backend...");
 
   try {
     const formData = new FormData();
@@ -404,7 +404,7 @@ if (!selectedYear) {
     console.error(err);
     setUploadStatus({
       type: "error",
-      message: "Failed to upload Excel. Check file format.",
+      message: "Failed to upload Excel. Check file format and column constraints.",
     });
   }
 

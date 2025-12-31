@@ -40,7 +40,7 @@ queryFn: getStudents
         <StatsOverview
           totalStudents={students.length}
           totalMentors={mentors.length}
-          onChainRecords={onChainRecords}
+          // onChainRecords={onChainRecords}
         />
 
         <div className="mt-8">

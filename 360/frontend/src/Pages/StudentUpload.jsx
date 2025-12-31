@@ -14,6 +14,7 @@ export default function StudentUpload() {
   const [uploading, setUploading] = useState(false);
   const [status, setStatus] = useState(null);
   const [inputValues, setInputValues] = useState({});
+const [fileError, setFileError] = useState(null);
 
 
   const requiredFields = {
@@ -276,7 +277,29 @@ export default function StudentUpload() {
                 <input
                   type="file"
                   accept=".pdf,.png,.jpg,.jpeg"
-                  onChange={(e) => setFile(e.target.files[0])}
+onChange={(e) => {
+  const selectedFile = e.target.files[0];
+
+  if (!selectedFile) return;
+
+  const fileSizeMB = selectedFile.size / (1024 * 1024);
+
+  if (fileSizeMB < 2) {
+    setFileError("File must be at least 2 MB.");
+    setFile(null);
+    return;
+  }
+
+  if (fileSizeMB > 5) {
+    setFileError("File size cannot exceed 5 MB.");
+    setFile(null);
+    return;
+  }
+
+  // Valid file → store it
+  setFileError(null);
+  setFile(selectedFile);
+}}
                   className="hidden"
                   id="file-upload"
                 />
@@ -321,7 +344,12 @@ export default function StudentUpload() {
                   Upload Document
                 </>
               )}
+              
+
             </Button>
+            {fileError && (
+  <p className="text-red-600 text-sm mt-2">{fileError}</p>
+)}
           </CardContent>
         </Card>
       </div>

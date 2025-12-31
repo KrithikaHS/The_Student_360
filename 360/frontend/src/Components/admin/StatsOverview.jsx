@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Shield, TrendingUp, UserCheck, Users } from "lucide-react";
+import { TrendingUp, UserCheck, Users } from "lucide-react";
 
 export default function StatsOverview({ totalStudents, totalMentors, verifiedDocuments, onChainRecords }) {
   const stats = [
@@ -21,14 +21,14 @@ export default function StatsOverview({ totalStudents, totalMentors, verifiedDoc
       textColor: "text-green-600"
     },
     
-    {
-      title: "On-Chain Records",
-      value: onChainRecords,
-      icon: Shield,
-      color: "from-orange-500 to-red-500",
-      bgColor: "bg-orange-50",
-      textColor: "text-orange-600"
-    }
+    // {
+    //   title: "On-Chain Records",
+    //   value: onChainRecords,
+    //   icon: Shield,
+    //   color: "from-orange-500 to-red-500",
+    //   bgColor: "bg-orange-50",
+    //   textColor: "text-orange-600"
+    // }
   ];
 
   return (

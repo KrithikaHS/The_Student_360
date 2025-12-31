@@ -985,6 +985,7 @@ def set_mentor_password(request):
 @permission_classes([IsAuthenticated])
 def resend_activation_email(request):
     mentor_ids = request.data.get("mentor_ids", [])
+    
     print("Received mentor IDs:", mentor_ids)
 
     if not mentor_ids:
@@ -1267,7 +1268,7 @@ def add_offer_logic(student_data, company_name, ctc, company_type):
     ctc = float(ctc)
 
     offer = {"company": company_name, "ctc": ctc}
-
+    print(offer)
     # 1️⃣ SERVICE RULE
     if company_type == "service":
 
@@ -1313,6 +1314,7 @@ def add_offer_logic(student_data, company_name, ctc, company_type):
             len(student_data.dream)
         )
         student_data.save()
+        print("saved")
         return
 
 
@@ -1452,6 +1454,8 @@ def student_search(request):
 @permission_classes([IsAuthenticated])
 def manual_assign(request):
     data = request.data
+    print(data)
+
 
     company = data.get("company")
     company_type = data.get("type")
@@ -1459,24 +1463,26 @@ def manual_assign(request):
     year = data.get("year")
     students_list = data.get("students", [])
 
-    if not company or not company_type or not year:
+    if not company or not company_type :
         return Response({"error": "Missing required fields"}, status=400)
 
     if len(students_list) == 0:
         return Response({"error": "No students selected"}, status=400)
 
     updated = []
-
+    print("Here")
     with transaction.atomic():
+        print("inside")
         for item in students_list:
             student_id = item.get("id")
             individual_ctc = item.get("ctc") or default_ctc
 
             if not individual_ctc:
                 return Response({"error": f"CTC missing for student {student_id}"}, status=400)
-
-            student = Student.objects.filter(id=student_id).first()
+            print(student_id)
+            student = Student.objects.filter(user_id=student_id).first()
             if not student:
+                print("not students")
                 continue
 
             student_data, _ = Students_data.objects.get_or_create(
@@ -1488,10 +1494,10 @@ def manual_assign(request):
                     "batch_year": year
                 }
             )
-
+            print("done")
             # offer assign logic
             add_offer_logic(student_data, company, individual_ctc, company_type)
-
+            
             updated.append({
                 "name": f"{student.user.first_name} {student.user.last_name}".strip(),
                 "student_id": student.id,
@@ -1499,6 +1505,7 @@ def manual_assign(request):
                 "type": company_type,
                 "ctc": individual_ctc,
             })
+    print("done2")
 
     return Response({"status": "ok", "updated": updated})
 

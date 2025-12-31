@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { CheckCircle, Clock, FileText, Shield, UserCheck } from "lucide-react";
+import { CheckCircle, Clock, FileText, UserCheck } from "lucide-react";
 
 export default function StatsCards({ totalDocuments, pendingDocs, verifiedDocs, onChainDocs, mentorName }) {
   const stats = [
@@ -28,14 +28,14 @@ export default function StatsCards({ totalDocuments, pendingDocs, verifiedDocs, 
       bgColor: "bg-green-50",
       textColor: "text-green-600"
     },
-    {
-      title: "On Blockchain",
-      value: onChainDocs,
-      icon: Shield,
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50",
-      textColor: "text-purple-600"
-    }
+    // {
+    //   title: "On Blockchain",
+    //   value: onChainDocs,
+    //   icon: Shield,
+    //   color: "from-purple-500 to-pink-500",
+    //   bgColor: "bg-purple-50",
+    //   textColor: "text-purple-600"
+    // }
   ];
 
   return (

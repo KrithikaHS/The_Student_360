@@ -92,7 +92,7 @@ export default function AddMentors() {
     } catch (err) {
       setStatus({
         type: "error",
-        message: "Bulk upload failed. Check file format.",
+        message: "Bulk upload failed. Check file format and column constraints.",
       });
     } finally {
       setProcessing(false);
@@ -257,7 +257,7 @@ export default function AddMentors() {
             <li>• Email</li>
             <li>• Phone</li>
             <li>• Department</li>
-            <li>• Specialization</li>
+            {/* <li>• Specialization</li> */}
             <li className="mt-2 font-semibold">Backend will handle validation.</li>
           </ul>
         </div>

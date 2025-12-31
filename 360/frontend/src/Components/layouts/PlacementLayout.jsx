@@ -21,8 +21,7 @@ import {
   GraduationCap,
   LayoutDashboard,
   LogOut,
-  Menu,
-  BarChart3
+  Menu
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -37,11 +36,11 @@ const navigationItems = [
   //   url: createPageUrl("ViewAnalytics"),
   //   icon: BarChart3,
   // },
-  // {
-  //   title: "Filter Students",
-  //   url: createPageUrl("FilterStudents"),
-  //   icon: Filter,
-  // },
+  {
+    title: "Filter Students",
+    url: createPageUrl("FilterStudents"),
+    icon: Filter,
+  },
   {
     title: "Placed Students Details",
     url: createPageUrl("DownloadReports"),
