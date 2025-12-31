@@ -86,8 +86,3 @@ npm start
 * Cloud deployment capable of handling 10,000+ students efficiently.
 
 ---
-
-## Contributors
-
-@KrithikaHS
-@Pallavi-Patil6
